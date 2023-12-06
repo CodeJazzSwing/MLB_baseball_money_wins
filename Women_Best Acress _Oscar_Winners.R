@@ -4,7 +4,7 @@ library(plotly)
 
 # Create the plot
 p <- ggplot(oscars, aes(x= Year, y=Age)) + 
-  geom_point(aes(text = paste("Name: ", Name, "<br>Year: ", Year, "<br>Age: ", Age)), color="blue", size=3) + 
+  geom_point(aes(text = paste("Name: ", Name, "<br>Year: ", Year, "<br>Age: ", Age, "<br>Movie: ", Movie)), color="blue", size=3) + 
   geom_smooth (method="lm", color = "red") + 
   geom_segment(aes(x=Year, xend=Year, y=0, yend=Age)) + 
   coord_cartesian(ylim=c(21, 80)) + 
