@@ -1,0 +1,14 @@
+---
+title: "Money Spent for Wins in the 2012 Major Leage Baseball year."
+output: github_document
+---
+
+```{r MLB}
+library(ggplot2)
+mlb <- read.table("YOUR_PATH_FILE", header = TRUE, sep = ",")
+ggplot(mlb) + geom_point(aes (x= Payroll..millions., y = Wins, color = Team, size=Payroll..millions.)) + 
+  geom_text(data=mlb, aes (x= Payroll..millions., y=Wins, label = Team), nudge_x = 0.25, nudge_y = 0.25, check_overlap = T) + 
+  labs(title = "Money Spent for Wins", subtitle = "A look at the millions spent for wins \n in the 2012 Major Leage Baseball year.", caption = "Footnote: The Giants won the championship while the Tigers finished 2nd place. \n  Teams in yellow went to the playoffs. \n Source: https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html") + xlab("Millions of Dollars") + ylab("Number of Wins") + annotate("rect", xmin=c(52, 195), xmax = c(135, 202), ymin = c(87, 93) , ymax = c (99, 97), alpha=0.2, color="red", fill="gold2")
+View(mlb)
+
+```
